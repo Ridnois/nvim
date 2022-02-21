@@ -20,6 +20,8 @@ call plug#begin()
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua'
 
+  " Git
+  Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
 colorscheme OceanicNext
