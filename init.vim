@@ -22,6 +22,10 @@ call plug#begin()
 
   " Git
   Plug 'lewis6991/gitsigns.nvim'
+
+  " Martkdown preview
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
 colorscheme OceanicNext
