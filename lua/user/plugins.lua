@@ -66,8 +66,11 @@ return packer.startup(function(use)
   -- ColorScheme
 	use "navarasu/onedark.nvim"
 	-- Git
-	use "lewis6991/gitsigns.nvim"  
-	if PACKER_BOOTSTRAP then
+	use "lewis6991/gitsigns.nvim"
+  -- Bottom panel
+  use 'nvim-lualine/lualine.nvim'
+	
+  if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
 end)
