@@ -45,9 +45,28 @@ packer.init {
 return packer.startup(function(use)
 
 	use "wbthomason/packer.nvim" -- Packer
-
-	-- ColorScheme
-	use 'navarasu/onedark.nvim'
+	-- File explorer
+  use "kyazdani42/nvim-web-devicons" --for file icons
+  use "kyazdani42/nvim-tree.lua"
+	
+	-- LSP
+	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
+	use "tamago324/nlsp-settings.nvim"
+	use "jose-elias-alvarez/null-ls.nvim"
+	-- Autocomplete
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
+  use "nvim-lua/plenary.nvim"
+	
+  -- ColorScheme
+	use "navarasu/onedark.nvim"
+	-- Git
+	use "lewis6991/gitsigns.nvim"  
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
