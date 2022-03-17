@@ -1,3 +1,7 @@
 require "user.plugins"
+require "user.keymappings"
 require "user.lsp"
+require "user.settings"
 require "user.colorscheme"
+require "user.nvim-tree"
+require "user.gitsigns"
