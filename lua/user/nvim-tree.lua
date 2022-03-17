@@ -14,6 +14,7 @@ vim.g.nvim_tree_icons = {
   },
   folder = {
     default = "",
+    arrow_closed = ">",
     open = "",
     empty = "",
     empty_open = "",
