@@ -163,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/seba/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["vim-solidity"] = {
+    loaded = true,
+    path = "/home/seba/.local/share/nvim/site/pack/packer/start/vim-solidity",
+    url = "https://github.com/tomlion/vim-solidity"
   }
 }
 

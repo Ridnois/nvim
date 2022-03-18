@@ -2,7 +2,7 @@ local keymap = function(mode, key, result)
 	vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
 end
 
-local tmapper
+--local tmapper
 
 vim.g.mapleader = ' '
 

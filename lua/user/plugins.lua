@@ -76,7 +76,8 @@ return packer.startup(function(use)
   
   -- Bottom panel
   use 'nvim-lualine/lualine.nvim'
-	
+  -- Solidity
+  use "tomlion/vim-solidity"
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
