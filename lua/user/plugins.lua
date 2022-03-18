@@ -54,7 +54,8 @@ return packer.startup(function(use)
 	use "williamboman/nvim-lsp-installer"
 	use "tamago324/nlsp-settings.nvim"
 	use "jose-elias-alvarez/null-ls.nvim"
-	-- Autocomplete
+	
+  -- Autocomplete
 	use "hrsh7th/nvim-cmp"
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-buffer"
@@ -63,10 +64,16 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"
   use "nvim-lua/plenary.nvim"
 	
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  
   -- ColorScheme
 	use "navarasu/onedark.nvim"
-	-- Git
+	
+  -- Git
 	use "lewis6991/gitsigns.nvim"
+  
   -- Bottom panel
   use 'nvim-lualine/lualine.nvim'
 	
