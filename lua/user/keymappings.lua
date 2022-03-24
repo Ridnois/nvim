@@ -2,7 +2,7 @@ local keymap = function(mode, key, result)
 	vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
 end
 
-local tmapper
+--local tmapper
 
 vim.g.mapleader = ' '
 
@@ -24,7 +24,7 @@ keymap("n", "<Leader>sp", ":sp | terminal<CR>")
 keymap("t", "<Esc>", "<C-\\><C-n>")
 -- space + sr to source %
 keymap("n", "<Leader>sr", ":source %<CR>")
-keymap("n", "<Leader>bd", ":Bdelete<CR>")
+keymap("n", "<Leader>bd", ":Bdelete!<CR>")
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>")
 keymap("n", "<C-Down>", ":resize +2<CR>")
@@ -73,4 +73,5 @@ keymap("n", "<Silent>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 keymap("n", "<Silent>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 keymap("n", "<Silent>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 keymap("n", "<Silent>K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
