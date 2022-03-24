@@ -78,6 +78,10 @@ return packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   -- Solidity
   use "tomlion/vim-solidity"
+
+  -- Greeter
+  use "goolord/alpha-nvim"
+  
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

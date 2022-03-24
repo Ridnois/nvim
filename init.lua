@@ -1,3 +1,5 @@
+require "user.icons"
+require "user.alpha"
 require "user.plugins"
 require "user.keymappings"
 require "user.lsp"
