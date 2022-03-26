@@ -48,7 +48,10 @@ return packer.startup(function(use)
 	-- File explorer
   use "kyazdani42/nvim-web-devicons" --for file icons
   use "kyazdani42/nvim-tree.lua"
-	
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  }	
 	-- LSP
 	use "neovim/nvim-lspconfig"
 	use "williamboman/nvim-lsp-installer"
