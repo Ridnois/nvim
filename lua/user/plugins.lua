@@ -70,6 +70,7 @@ return packer.startup(function(use)
   
   -- ColorScheme
 	use "navarasu/onedark.nvim"
+  use "shaunsingh/nord.nvim"
 	
   -- Git
 	use "lewis6991/gitsigns.nvim"

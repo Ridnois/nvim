@@ -75,3 +75,7 @@ keymap("n", "<Silent>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 keymap("n", "<Silent>K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
+-- nvim -tree
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>")
+keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>")
+keymap("n", "<Laeder>n", ":NvimTreeFindFile<CR>")
