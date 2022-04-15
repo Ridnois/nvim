@@ -82,7 +82,12 @@ return packer.startup(function(use)
 
   -- Greeter
   use "goolord/alpha-nvim"
-  
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
