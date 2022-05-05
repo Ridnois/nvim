@@ -63,6 +63,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>")
 -- Live grep on filesystem
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep hidden=true<CR>")
+-- Look for commits
+keymap("n", "<Leader>gc", "<cmd>Telescope git_commits hidden=true<CR>")
 -- More about this later
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
 -- Help tags
@@ -81,7 +83,7 @@ keymap("n", "<Silent>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 keymap("n", "<Silent>K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
--- nvim -tree
+-- nvim-tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>")
 keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>")
 keymap("n", "<Laeder>n", ":NvimTreeFindFile<CR>")

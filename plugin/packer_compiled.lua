@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/ridnois/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/ridnois/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/ridnois/.local/share/nvim/site/pack/packer/start/cmp-buffer",
