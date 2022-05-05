@@ -6,3 +6,4 @@
 - Onedark 🌈
 - Packer 📦
 - Telescope 🔭
+- And more 🪓
