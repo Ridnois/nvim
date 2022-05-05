@@ -10,5 +10,6 @@ require "user.cmp"
 require "user.lualine"
 require "user.gitsigns"
 require "user.autocommands"
+require "user.telescope"
 
 vim.cmd [[ colorscheme nord ]]
