@@ -44,7 +44,7 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
       return
@@ -79,7 +79,7 @@ end
 M.on_attach = function(client, bufnr)
   -- notify(client.name)
   if client.name == "tsserver" or client.name == "html" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
