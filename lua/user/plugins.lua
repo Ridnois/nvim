@@ -89,6 +89,13 @@ return packer.startup(function(use)
   }
   -- Comment lines
   use 'terrortylor/nvim-comment'
+
+  -- Highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
