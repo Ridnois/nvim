@@ -36,7 +36,7 @@ keymap("n", "<A-Down>", ":resize +2<CR>")
 keymap("n", "<A-Left>", ":vertical resize -2<CR>")
 keymap("n", "<A-Right>", ":vertical resize +2<CR>")
 -- Resize to optimal window size
-keymap("n", "<A-l>", ":vertical resize 110<CR>")
+keymap("n", "<A-l>", ":vertical resize 104<CR>")
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>")
 keymap("n", "<S-h>", ":bprevious<CR>")
@@ -87,3 +87,4 @@ keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>")
 keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>")
 keymap("n", "<Laeder>n", ":NvimTreeFindFile<CR>")
+
