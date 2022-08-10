@@ -2,101 +2,89 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system {
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	}
-
-	print "installing packer close and reopen Neovim..."
-	vim.cmd [[packadd packer.nvim]]
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer, close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua files
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-	augroup packer_user_config
-		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerSync
-	augroup end
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
 ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
-
 if not status_ok then
-	return
+  return
 end
 
--- Make packer use floating window
+-- Have packer use a popup window
 packer.init {
-	display = {
-		open_fn = function()
-			return require("packer.util").float { border = "rounded" }	
-		end,
-	},
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
 }
 
--- Add your plugins here
 return packer.startup(function(use)
-
-	use "wbthomason/packer.nvim" -- Packer
-	-- File explorer
-  use "kyazdani42/nvim-web-devicons" --for file icons
-  use "kyazdani42/nvim-tree.lua"
-	
-	-- LSP
-	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
-	use "tamago324/nlsp-settings.nvim"
-	use "jose-elias-alvarez/null-ls.nvim"
-	
-  -- Autocomplete
-	use "hrsh7th/nvim-cmp"
-	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-buffer"
-	use "hrsh7th/cmp-path"
-	use "hrsh7th/cmp-cmdline"
-  use "saadparwaiz1/cmp_luasnip"
+  -- My plugins here
+  use "wbthomason/packer.nvim"
+  use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use "jiangmiao/auto-pairs"	
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  
-  -- ColorScheme
-	use "navarasu/onedark.nvim"
-  use "shaunsingh/nord.nvim"
-	
-  -- Git
-	use "lewis6991/gitsigns.nvim"
-  
-  -- Bottom panel
-  use 'nvim-lualine/lualine.nvim'
-  -- Solidity
-  use "tomlion/vim-solidity"
 
-  -- Greeter
-  use "goolord/alpha-nvim"
+  -- Colorschemes
+  use "lunarvim/colorschemes"
+  use "lunarvim/darkplus.nvim"
+  use "folke/tokyonight.nvim"
 
+  --  cmp plugins
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "saadparwaiz1/cmp_luasnip"
+
+  --snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "lvimuser/lsp-inlayhints.nvim"
+  use "ray-x/lsp_signature.nvim"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "b0o/SchemaStore.nvim"
+
+  -- Project directory
   use {
-    'nvim-telescope/telescope.nvim',
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  -- Comment lines
-  use 'terrortylor/nvim-comment'
-
-  -- Highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+    require("packer").sync()
+  end
 end)
