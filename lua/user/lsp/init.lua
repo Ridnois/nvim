@@ -42,8 +42,12 @@ require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
+require('lspconfig')['solang'].setup {
+ on_attach = on_attach,
+  flags = lsp_flags,
+}
 require('lspconfig')['solc'].setup {
-  on_attach = on_attach,
+ on_attach = on_attach,
   flags = lsp_flags,
 }
 require('lspconfig')['tsserver'].setup {
@@ -69,3 +73,5 @@ require('lspconfig')['rust_analyzer'].setup {
     ["rust-analyzer"] = {}
   }
 }
+
+require "user.lsp.null-ls"

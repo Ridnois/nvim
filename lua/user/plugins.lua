@@ -69,7 +69,7 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "b0o/SchemaStore.nvim"
-
+  use "jose-elias-alvarez/null-ls.nvim"
   -- Project directory
   use {
     'kyazdani42/nvim-tree.lua',
