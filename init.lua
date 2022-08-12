@@ -7,5 +7,6 @@ require "user.lsp"
 require "user.nvim-tree"
 require "user.nvim-treesitter"
 require "user.telescope"
+require "user.autopairs"
 
 vim.cmd "colorscheme tokyonight"

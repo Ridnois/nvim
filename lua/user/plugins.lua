@@ -82,7 +82,7 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { 'nvim-lua/plenary.nvim' }
   }
-
+  use "windwp/nvim-autopairs"
 
   -- Color highlight
   use 'nvim-treesitter/nvim-treesitter'
