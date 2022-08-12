@@ -6,5 +6,6 @@ require "user.cmp"
 require "user.lsp"
 require "user.nvim-tree"
 require "user.nvim-treesitter"
+require "user.telescope"
 
 vim.cmd "colorscheme tokyonight"
