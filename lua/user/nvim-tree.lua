@@ -58,6 +58,12 @@ nvim_tree.setup({
     },
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    show_on_dirs = true,
+    timeout = 400,
   },
 })
