@@ -8,5 +8,6 @@ require "user.nvim-tree"
 require "user.nvim-treesitter"
 require "user.telescope"
 require "user.autopairs"
+require "user.gitsigns"
 
 vim.cmd "colorscheme tokyonight"

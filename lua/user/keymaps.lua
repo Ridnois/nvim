@@ -93,3 +93,10 @@ keymap("n", "<Laeder>n", ":NvimTreeFindFile<CR>", opts)
 
 -- TERMINAL
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
+
+-- GitSigns
+keymap("n", "<Leader>bl", ":Gitsigns blame_line<CR>", opts)
+keymap("n", "<Leader>hh", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<Leader>lh", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<Leader>rh", ":Gitsigns reset_hunk<CR>", opts)
+

@@ -17,3 +17,4 @@ const someFunc = (prop: string) => {
   }
   console.log("That's all!");
 }
+
