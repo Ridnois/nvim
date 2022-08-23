@@ -99,4 +99,5 @@ keymap("n", "<Leader>bl", ":Gitsigns blame_line<CR>", opts)
 keymap("n", "<Leader>hh", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>lh", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<Leader>rh", ":Gitsigns reset_hunk<CR>", opts)
+keymap("n", "<Leader>hS", ":Gitsigns stage_buffer<CR>", opts)
 
