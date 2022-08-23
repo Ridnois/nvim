@@ -48,7 +48,11 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes"
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
-
+  -- Status
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   --  cmp plugins
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"

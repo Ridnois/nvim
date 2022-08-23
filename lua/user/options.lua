@@ -2,7 +2,6 @@ local options = {
   backup = false,
   hidden = true,
   clipboard = "unnamedplus",
-  cmdheight = 2,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0,
   fileencoding = "utf-8",
@@ -35,7 +34,7 @@ local options = {
   wrap = false,
   scrolloff = 8,
   sidescrolloff = 8,
-  guifont = "monospace:h17"
+--  guifont = "monospace:h17"
 }
 
 vim.opt.shortmess:append "c"
