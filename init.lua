@@ -11,3 +11,4 @@ require "user.autopairs"
 require "user.gitsigns"
 
 vim.cmd "colorscheme tokyonight"
+

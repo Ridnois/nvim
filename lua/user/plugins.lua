@@ -83,6 +83,7 @@ return packer.startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
   use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
 
   -- Color highlight
   use 'nvim-treesitter/nvim-treesitter'

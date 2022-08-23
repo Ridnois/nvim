@@ -1,6 +1,18 @@
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+        underline = true,
+        virtual_text = {
+            spacing = 5,
+            severity_limit = 'Warning',
+        },
+        update_in_insert = true,
+    }
+)
+
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "typescript", "go" },
+  ensure_installed = { "html","c", "lua", "rust", "typescript", "go" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -9,7 +21,7 @@ require 'nvim-treesitter.configs'.setup {
   auto_install = true,
 
   -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
+  ignore_install = { "" },
 
   highlight = {
     -- `false` will disable the whole extension
@@ -27,4 +39,6 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  autotag = { enable = true },
+  autopairs = { enable = true },
 }
