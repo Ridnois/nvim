@@ -10,6 +10,7 @@ require "user.telescope"
 require "user.autopairs"
 require "user.gitsigns"
 require "user.lualine"
+require "user.bufferline"
 
 vim.cmd "colorscheme tokyonight"
 
