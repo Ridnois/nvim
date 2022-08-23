@@ -62,9 +62,9 @@ keymap("v", "p", '"_dP"', opts)
 -- TELESCOPE
 
 -- Find files using Telescope command-line sugar.
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", opts)
 -- Live grep on filesystem
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep hidden=true<CR>", opts)
+keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 -- Look for commits
 keymap("n", "<Leader>gc", "<cmd>Telescope git_commits hidden=true<CR>", opts)
 -- More about this later
@@ -89,7 +89,7 @@ keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", o
 -- nvim-tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader>r", ":NvimTreeRefresh<CR>", opts)
-keymap("n", "<Laeder>n", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<Leader>n", ":NvimTreeFindFile<CR>", opts)
 
 -- TERMINAL
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)

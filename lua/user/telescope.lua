@@ -5,6 +5,9 @@ if not telescope_status_ok then
 end
 
 telescope.setup({
+  defaults = {
+    file_ignore_patterns = { ".git/", "^node_modules/" }
+  },
   pickers = {
     find_files = {
       hidden = true,
@@ -13,7 +16,6 @@ telescope.setup({
       additional_args = function()
         return { "--hidden" }
       end,
-      file_ignore_patterns = { ".git/", "^node_modules/"}
     }
   }
 })
