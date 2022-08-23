@@ -40,7 +40,9 @@ nvim_tree.setup({
   view = {
     adaptive_size = true,
     mappings = {
+      custom_only = false,
       list = {
+        { key = { "l", "<CR>", "options" }, cb = tree_cb "edit" },
         { key = "u", action = "dir_up" },
         { key = "h", cb = tree_cb, action = "close_node" },
         { key = "v", cb = tree_cb, action = "vsplit" },
