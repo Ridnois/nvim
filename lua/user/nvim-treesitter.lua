@@ -1,18 +1,18 @@
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-        underline = true,
-        virtual_text = {
-            spacing = 5,
-            severity_limit = 'Warning',
-        },
-        update_in_insert = true,
-    }
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    virtual_text = {
+      spacing = 5,
+      severity_limit = 'Warning',
+    },
+    update_in_insert = true,
+  }
 )
 
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "html","c", "lua", "rust", "typescript", "go" },
+  ensure_installed = { "html", "c", "lua", "rust", "typescript", "go" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

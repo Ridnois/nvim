@@ -1,3 +1,5 @@
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 local icons = {
@@ -55,17 +57,18 @@ nvim_tree.setup({
   },
   renderer = {
     group_empty = true,
-    icons = {
-      glyphs = icons
-    },
+    --icons = {
+    --glyphs = icons
+    --},
   },
   filters = {
     dotfiles = false,
+    custom = { "test" },
+    exclude = { "test", ".env*", ".next" }
   },
   git = {
     enable = true,
-    ignore = true,
-    show_on_dirs = true,
+    ignore = false,
     timeout = 400,
   },
 })
