@@ -57,9 +57,9 @@ nvim_tree.setup({
   },
   renderer = {
     group_empty = true,
-    --icons = {
-    --glyphs = icons
-    --},
+    icons = {
+      glyphs = icons
+    },
   },
   filters = {
     dotfiles = false,

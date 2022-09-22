@@ -43,11 +43,12 @@ require('lspconfig')['pyright'].setup {
   flags = lsp_flags,
 }
 require('lspconfig')['solang'].setup {
- on_attach = on_attach,
+  on_attach = on_attach,
   flags = lsp_flags,
+  cmd = { "solang", "language-server", "--target", "evm" },
 }
 require('lspconfig')['solc'].setup {
- on_attach = on_attach,
+  on_attach = on_attach,
   flags = lsp_flags,
 }
 require('lspconfig')['html'].setup {
