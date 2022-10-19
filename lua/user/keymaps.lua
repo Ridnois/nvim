@@ -83,7 +83,6 @@ keymap("n", "<Silent>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 -- Go to declaration
 keymap("n", "<Silent>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "<Silent>gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "<Silent>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "<Leader>fc", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 
 -- nvim-tree

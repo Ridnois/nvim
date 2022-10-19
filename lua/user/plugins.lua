@@ -67,22 +67,26 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "lvimuser/lsp-inlayhints.nvim"
   use "ray-x/lsp_signature.nvim"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
   use "b0o/SchemaStore.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
-  -- Project directory
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   }
+  use "folke/lua-dev.nvim"
+  -- Project directory
+  --use {
+    --'kyazdani42/nvim-tree.lua',
+    --requires = {
+      --'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    --},
+    --tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  --}
+  use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
+  use { "kyazdani42/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { 'nvim-lua/plenary.nvim' }

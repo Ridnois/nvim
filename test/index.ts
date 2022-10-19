@@ -1,8 +1,7 @@
-const foo: string = 'foo'
+import { myFunc } from "./module"
 
-const foo2: number = 0
 
-const greet: (name: string) => string = (name) => `Hello, ${name}!`
+const greet = (name: string) => `Hello, ${name}!`
 const weirdString = '//heheh'
 
 console.log(weirdString)
@@ -17,4 +16,6 @@ const someFunc = (prop: string) => {
   }
   console.log("That's all!");
 }
+
+const myRandom = myFunc(3)
 

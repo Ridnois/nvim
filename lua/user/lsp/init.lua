@@ -1,82 +1,76 @@
-require("nvim-lsp-installer").setup {}
+local settings = {
+  ui = {
+    border = "rounded",
+    icons = {
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
+    },
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
+}
+local servers = {
+  "sumneko_lua",
+  "rust_analyzer",
+  "tsserver",
+  "solang",
+  --"solc",
+  "solidity",
+  "tailwindcss",
+}
 
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+require("mason").setup(settings)
+require("mason-lspconfig").setup({
+  ensure_installed = servers,
+  automatic_installation = true,
+})
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>fc', vim.lsp.buf.formatting, bufopts)
+if not lspconfig_status_ok then
+  vim.notify "Failed"
+  return
 end
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
-require('lspconfig')['pyright'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-require('lspconfig')['solang'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  cmd = { "solang", "language-server", "--target", "evm" },
-}
-require('lspconfig')['solc'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-require('lspconfig')['html'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-require('lspconfig')['tsserver'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-require('lspconfig')['sumneko_lua'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" }
-      }
-    }
-  }
-}
-require('lspconfig')['rust_analyzer'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  -- Server-specific settings...
-  settings = {
-    ["rust-analyzer"] = {}
-  }
-}
+local opts = {}
 
-require "user.lsp.null-ls"
+for _, server in pairs(servers) do
+  opts = {
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
+  }
+  if server == "sumneko_lua" then
+    local l_status_ok, lua_dev = pcall(require, "lua-dev")
+    if not l_status_ok then
+      return
+    end
+    -- local sumneko_opts = require "user.lsp.settings.sumneko_lua"
+    -- opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    -- opts = vim.tbl_deep_extend("force", require("lua-dev").setup(), opts)
+    local luadev = lua_dev.setup {
+      --   -- add any options here, or leave empty to use the default settings
+      -- lspconfig = opts,
+      lspconfig = {
+        on_attach = opts.on_attach,
+        capabilities = opts.capabilities,
+        --   -- settings = opts.settings,
+      },
+    }
+    lspconfig.sumneko_lua.setup(luadev)
+  end
+
+  if server == "solc" then
+    local solc_opts = {
+      cmd = { "solc", "--lsp", "--include-path", "../node_modules" }
+    }
+    opts = vim.tbl_deep_extend("force", solc_opts, opts)
+  end
+  if server == "solang" then
+    local solang_opts = {
+      cmd = { "solang", "language-server", "--target", "evm", "--importpath", "node_modules/" }
+    }
+    opts = vim.tbl_deep_extend("force", solang_opts, opts)
+  end
+  lspconfig[server].setup(opts)
+end
